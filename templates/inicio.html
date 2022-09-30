@@ -1,0 +1,59 @@
+<div class="ajax-transition">
+    <!-- Imagen de fondo / hero -->
+    <header class="main-background main-background-inicio">
+        <div class="main-background__text">
+            <h1>Todos los juguetes</h1>
+            <p>En un solo lugar</p>
+        </div>
+    </header>
+    <!-- Section -->
+    <section class="section ajax-transition">
+        <header class="section__header">
+            <div class="section__title">
+                <h2>Más vendidos</h2>
+                <p>Encuentra los juguetes más deseados</p>
+            </div>
+        </header>
+
+        <!-- Contenedor -->
+        <div class="cards-container"></div>
+
+            <script type="text/x-handlebars-template" id="inicioHbs">
+                {{#each onMain}}
+                    <div class="card">
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <img src="{{image}}" alt="{{name}}" title="{{name}}" class="card__image">
+                                <div class="product-label-{{label.value}}" data-label="{{label.value}}">{{label.text}}</div>
+                                <i class="card__image-btn"></i>
+                            </div>
+                            <div class="card__content">
+                                <h2 class="card__heading">{{name}}</h2>
+                                <div class="card__description">
+                                    <p>{{description.large}}</p>
+                                </div>
+                                <div class="card__footer">
+                                    <div class="card__price">
+                                        <span class="card__price-dollar">$</span><span>{{price}}</span>
+                                    </div>
+                                    <a href="#" class="card__btn-buy" data-product-id="{{id}}">Comprar</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                {{/each}}
+            </script>
+        <!-- Inicio del footer del section -->    
+        <footer class="section__footer">
+            <div class="footer-cards__texts">
+                <p>Trabajamos con las mejores marcas del sector</p>
+                <p>Elige la que mas te guste</p>
+            </div>
+            <div class="footer-cards__brands">
+                <img class="footer-cards__img" src="img/logo-lego.png" alt="Lego" title="Lego">
+                <img class="footer-cards__img" src="img/logo_hasbro.png" alt="Hasbro" title="Hasbro">
+                <img class="footer-cards__img" src="img/logo-fisher-price.png" alt="Fisher Price" title="Fisher Price">
+            </div>
+        </footer>
+    </section>
+</div>

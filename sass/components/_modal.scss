@@ -1,0 +1,257 @@
+.card-modal-container {
+    display: none;
+}
+
+.card-modal-container--show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 60%;
+    height: 600px;
+    background-color: hsla(0, 0%, 0%, .9);
+    color: #bababa;
+    position: fixed;
+    top: 5%;
+    left: 20%;
+    border-radius: 15px;
+    z-index: 1002;
+}
+
+.card-modal-x {
+    font-weight: bold;
+    position: absolute;
+    top: 2%;
+    left: 97%;
+    color: #fff;
+    cursor: pointer;
+
+    @media screen and (max-width: 700px) {
+        left: 93%;
+    }
+}
+
+.cart-modal-background {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+}
+
+// PRODUCTS ON CART ------------------
+// INICIA TABLA
+.modal_products-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    text-align: center;
+    min-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #914b9d #d7fdff ;
+}
+
+.modal_products-header {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+}
+
+.modal_product {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+    background-color: rgb(30, 30, 30);
+
+     &:nth-child(odd) {
+        background-color: rgb(60, 60, 60);
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 2px 1px #fff inset;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            background-color: #d7fdff;
+            margin-right: -40px;
+            margin-bottom: auto;
+            animation-name: scaleUp;
+            animation-duration: .3s;
+        }
+    }
+}
+
+.modal_product-item {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+    
+    &-small {
+        flex-grow: 1;
+        width: 80px;
+        gap: 5px;
+    }
+}
+
+#precio::before {
+    content: '$';
+}
+
+#subtotal::before {
+    content: '$';
+}
+
+@media screen and (max-width: 1024px) {
+    .modal_products-container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .modal_product {
+        flex-direction: column;
+        min-height: 340px;
+        width: 31%;
+        min-width: 180px;
+        border-radius: 5px;
+        padding: 10px;
+
+        &:hover {
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .modal_products-header {
+        display: none;
+    }
+
+    .modal_product-item {
+        width: 100%;
+    }
+
+    .modal_product-item-small {
+        width: 100%;
+    }
+
+    #precio::before {
+        content: 'Precio: $';
+    }
+
+    #subtotal::before {
+        content: 'Subtotal: $';
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .modal_product {
+        width: 100%;
+    }
+
+    .modal_products-header {
+        display: none;
+    }
+}
+
+// TERMINA TABLA
+
+.modal_price {
+    text-align: center;
+}
+
+.modal_image-container {
+    height: 100%;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_image {
+    width: 50px;
+
+    @media screen and (max-width: 1024px) {
+        width: auto;
+        height: 100px;
+    }
+}
+
+.modal_button {
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.modal_button--delete {
+    background-color: #914b9d;
+
+    &:hover {
+        background-color: hsl(291, 35%, 40%);
+    }
+    &:active {
+        background-color: hsl(291, 35%, 35%);
+    }
+}
+
+.modal_button--add {
+    background-color: hsl(120, 73%, 60%);
+
+    &:hover {
+        background-color: hsl(120, 73%, 50%);
+    }
+    &:active {
+        background-color: hsl(120, 73%, 40%);
+    }
+}
+
+.modal_button-empty-cart {
+    padding: 10px;
+    font-weight: bold;
+    background-color: #d7fdff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: hsl(183, 100%, 86%);
+    }
+    &:active {
+        background-color: hsl(183, 100%, 80%);
+    }
+}
+
+.btn_added-product--show {
+    background-color: hsl(120, 73%, 60%);
+    color: #fff;
+    text-shadow: 0px 0px 5px #000;
+    box-shadow: 0px 0px 1px #000;
+    padding: 20px;
+    border-radius: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+    margin-top: 5%;
+    margin-left: 43%;
+    animation-name: fadeInDown;
+    animation-duration: .4s;
+    animation-timing-function: ease;
+}

@@ -1,0 +1,51 @@
+<div class="ajax-transition">
+    <!-- Imagen de fondo / hero -->
+    <header class="main-background main-background-contacto">
+        <div class="main-background__text">
+            <h1>Ponete en contacto</h1>
+        </div>
+    </header>
+    <!-- Section -->
+    <section class="section ajax-transition">
+        <header class="section__header">
+            <div class="section__title">
+                <h2>Nos importa tu opinión</h2>
+                <p>Dinos lo que piensas</p>
+            </div>
+        </header>
+        <!-- Contenedor -->
+        <div class="cards-container">
+            <form action="post" method="post" id="form_contact" class="form-contact-container">
+                <div class="form-contact-item">
+                    <label for="name" class="form-contact-item_label">Nombre</label>
+                    <input type="text" name="name" id="name" class="form-contact-item_input" autofocus required>
+                </div>
+                <div class="form-contact-item">
+                    <label for="email" class="form-contact-item_label">Email</label>
+                    <input type="email" name="email" id="email" class="form-contact-item_input" required>
+                </div>
+                <div class="form-contact-item" id="textarea-item">
+                    <label for="textarea" class="form-contact-item_label">Escríbenos</label>
+                    <textarea class="form-contact-item_input" name="textarea" id="textarea" cols="30" rows="10" minlength="10" maxlength="400" placeholder="Tu comentario..." required></textarea>
+                </div>
+                <div class="form-contact-buttons">
+                    <button class="form-contact-btn" type="reset">Restablecer</button>
+                    <button class="form-contact-btn" id="contact_btn-submit" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+        <!-- Inicio del footer del section -->    
+        <footer class="section__footer">
+            <div class="footer-cards__texts">
+                <p>Trabajamos con las mejores marcas del sector</p>
+                <p>Elige la que mas te guste</p>
+            </div>
+            <div class="footer-cards__brands">
+                <img class="footer-cards__img" src="img/logo-lego.png" alt="Lego" title="Lego">
+                <img class="footer-cards__img" src="img/logo_hasbro.png" alt="Hasbro" title="Hasbro">
+                <img class="footer-cards__img" src="img/logo-fisher-price.png" alt="Fisher Price" title="Fisher Price">
+            </div>
+        </footer>
+        <script src="../js/form-contacto.js"></script>
+    </section>
+</div>

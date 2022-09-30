@@ -1,0 +1,16 @@
+// IMAGEN DEL BANNER PRINCIPAL PAGINA 'NOSOTROS'
+.main-background-nosotros {
+    background-image: url(/img/backgrounds/nosotros_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 70%;
+}
+
+// CONTENEDOR DE LOS VIDEOJUEGOS
+.section__games-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    gap: 50px;
+}

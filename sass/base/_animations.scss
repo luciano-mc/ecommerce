@@ -1,0 +1,22 @@
+@keyframes fadeInDown { 
+    0%   { opacity: 0; transform: translateY(-20px);} 
+    100% { opacity: 1; transform: translateY(0px);} 
+} 
+@keyframes fadeInDownFar { 
+    0%   { opacity: 0; transform: translateY(-40px);} 
+    100% { opacity: 1; transform: translateY(0px);} 
+} 
+@keyframes fadeInLeft { 
+    0%   { opacity: 0; transform: translateX(50px);} 
+    100% { opacity: 1; transform: translateX(0px);} 
+} 
+@keyframes scaleUp { 
+    0%   { opacity: 0; transform: scale(0);} 
+    100% { opacity: 1; transform: scale(1);}     
+};
+
+.ajax-transition {
+    animation-name: fadeInDown;
+    animation-duration: .8s;
+    animation-timing-function: ease;
+}

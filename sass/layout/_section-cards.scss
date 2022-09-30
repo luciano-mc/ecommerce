@@ -1,0 +1,60 @@
+.section {                
+    padding: 30px 0;
+}
+
+/* ---- HEADER --- */
+.section__title {
+    text-align: center;
+}
+
+/* ---- FOOTER --- */
+
+.section__footer {
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    @media (min-width: 950px) {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
+
+.footer-cards__texts {
+    width: 40%;
+    text-align: center;
+    font-size: 18px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+
+.footer-cards__brands {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media (max-width: 950px) {
+        flex-direction: column;
+        gap: 80px;
+    }
+}
+
+.footer-cards__img {
+    min-width: 120px;
+    width: 100%;
+    object-fit: contain;
+    max-width: 140px;
+
+    @media (max-width: 768px) {
+        object-fit: cover;
+    }
+}
