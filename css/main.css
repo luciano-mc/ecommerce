@@ -87,6 +87,20 @@ body {
   animation-timing-function: ease;
 }
 
+.ondevelopment-label {
+  position: fixed;
+  border-radius: 25px;
+  padding: 5px 10px;
+  background-color: #d7fdff;
+  color: #914b9d;
+  box-shadow: 0px 0px 5px 1px #000;
+  font-weight: bold;
+  font-size: 12px;
+  right: 30px;
+  bottom: 30px;
+  z-index: 99999;
+}
+
 .main-header__hamburguer-button-container {
   margin-left: auto;
 }
@@ -386,6 +400,7 @@ body {
 
 .main-nav-toggle:checked ~ .main-header .main-header__main-nav-container {
   display: block;
+  animation: fadeInLeft 0.3s;
 }
 
 .main-footer {
@@ -770,10 +785,12 @@ body {
   height: 40px;
   display: flex;
   align-items: center;
+  width: fit-content;
   position: fixed;
+  margin: 30px auto 0px auto;
+  left: 0;
+  right: 0;
   z-index: 99999;
-  margin-top: 5%;
-  margin-left: 43%;
   animation-name: fadeInDown;
   animation-duration: 0.4s;
   animation-timing-function: ease;
@@ -1253,11 +1270,23 @@ body {
 .game__button:active {
   background-color: hsl(291deg, 35%, 40%);
 }
+@media screen and (max-width: 650px) {
+  .game__button {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
 
 .game__texts {
   width: 100%;
   text-align: justify;
   line-height: 2;
+}
+@media screen and (max-width: 650px) {
+  .game__texts {
+    text-align: center;
+  }
 }
 
 .game__title {

@@ -247,10 +247,12 @@
     height: 40px;
     display: flex;
     align-items: center;
+    width: fit-content;
     position: fixed;
+    margin: 30px auto 0px auto;
+    left: 0;
+    right: 0;
     z-index: 99999;
-    margin-top: 5%;
-    margin-left: 43%;
     animation-name: fadeInDown;
     animation-duration: .4s;
     animation-timing-function: ease;

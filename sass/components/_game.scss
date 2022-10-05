@@ -60,12 +60,22 @@
     &:active {
         background-color: hsl(291, 35%, 40%);
     }
+
+    @media screen and (max-width: 650px) {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .game__texts {
     width: 100%;
     text-align: justify;
     line-height: 2;
+    
+    @media screen and (max-width: 650px) {
+        text-align: center;
+    }
 }
 
 .game__title {

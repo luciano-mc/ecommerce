@@ -91,8 +91,7 @@ const ajaxInit = async id => {
                 default : null;
             }
             main.innerHTML = data;
-        }
-        );
+        })    
 }   catch (error) {
         console.error('Error:', error.message);
         main.innerHTML = 

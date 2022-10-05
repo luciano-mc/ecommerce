@@ -4,4 +4,5 @@
 
 .main-nav-toggle:checked ~ .main-header .main-header__main-nav-container {
     display: block;
+    animation: fadeInLeft .3s;
 }
