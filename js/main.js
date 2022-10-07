@@ -103,11 +103,7 @@ const ajaxInit = async id => {
 
 // PETICION AJAX AL REFRESCAR LA PAGINA
 window.addEventListener('load', () => {
-    if (location.hash) {
-        ajaxInit(getIdFromHash() + '.html');
-    } else {
-        ajaxInit(getUrlFromId('inicio'));
-    }
+    ajaxInit(getIdFromHash() + '.html');
     activateLink();
 });
 
@@ -288,6 +284,3 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = loadCart();
     refreshCart();
 });
-
-// CARGA LAS CARDS PARA LA PAGINA INICIO AUTOMATICAMENTE
-ajaxInit('inicio.html');
