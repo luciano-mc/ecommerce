@@ -1,0 +1,29 @@
+.section-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container__img-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+}
+
+.img-404 {
+    height: 100%;
+}
+
+.section-404__footer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#home {
+    background-color: #497;
+    text-decoration: none;
+}
