@@ -605,7 +605,6 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 999;
 }
 
 .modal_products-container {
@@ -788,9 +787,7 @@ body {
   background-color: hsl(142deg, 86%, 60%);
 }
 
-.btn_added-product--show {
-  background-color: hsl(120deg, 73%, 60%);
-  color: #fff;
+.btn_added {
   text-shadow: 0px 0px 5px #000;
   box-shadow: 0px 0px 1px #000;
   padding: 20px;
@@ -807,6 +804,16 @@ body {
   animation-name: fadeInDown;
   animation-duration: 0.4s;
   animation-timing-function: ease;
+}
+
+.product--show {
+  color: #fff;
+  background-color: hsl(120deg, 73%, 60%);
+}
+
+.cart--show {
+  color: #fff;
+  background-color: rgb(39, 39, 255);
 }
 
 .modal_buttons {
@@ -1123,6 +1130,7 @@ body {
   color: #fff;
   margin-bottom: 5px;
   font-size: 15px;
+  transition: 0.3s;
 }
 .product-label-textarea {
   position: absolute;

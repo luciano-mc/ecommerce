@@ -5,12 +5,20 @@ document.addEventListener('onload', productForm.reset());
 
 /* ------------------------ product form ---------------------- */
 /* Inputs selection */
-let inputCollection = document.querySelectorAll('form > div > input:not([id="image"])');
-let textAreaCollection = document.querySelectorAll('textarea');
+let inputCollection = document.querySelectorAll('form > div > input:not([data-noanimation="true"]), textarea');
 
-/* Input Styles al hacer focus */
-inputCollection.forEach(input => input.addEventListener('focus', e => e.target.labels[0].classList.add('product-input-clicked')));
-textAreaCollection.forEach(textarea=> textarea.addEventListener('focus', e => e.target.labels[0].classList.add('product-input-clicked')));
+// Añade o quita clase a los labels
+inputCollection.forEach(input => {
+    input.onfocus = () => {
+        input.previousElementSibling.classList.add('product-input-clicked')
+    }
+    input.onblur = () => {
+        input.value = input.value.trim();
+        if (input.value.trim().length == 0) {
+            input.previousElementSibling.classList.remove('product-input-clicked')
+        }
+    }
+})
 
 /* Muestra el error de la validación */
 function mostrarErrorValidacion(mensaje, divInput) {

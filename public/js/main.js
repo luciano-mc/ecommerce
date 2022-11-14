@@ -7,7 +7,6 @@ let cartButtonContainer = document.querySelector('.cart-svg-container');
 let modal = document.getElementById('modal');                              /* Modal */
 let modalBackground = document.getElementById('modal-background');          // Fondo del modal
 let modalCross = document.querySelector('.card-modal-x');                           /* Cruz del modal */
-let modalContent = document.querySelector('.modal-content');                        /* Contenido del modal */
 let modalTitle = document.querySelector('.modal_title');
 
 /* ------------- MODAL ----------- */
@@ -70,7 +69,6 @@ document.addEventListener('click', (e) => {if (e.target.classList.contains('card
 /* INICIAR AJAX - FETCH / AWAIT */
 const main = document.getElementById('main');
 const getIdFromHash = () => location.hash ? location.hash.slice(1) : 'inicio';
-const getUrlFromId = id => `../templates/${id}.html`;
 
 const ajaxInit = async id => {
     let url = '../views/';
@@ -206,15 +204,16 @@ main.addEventListener('click', e => {
         e.preventDefault();
         addToCart(parseInt(e.target.dataset.productId));
         refreshCart();
-        showBtnAddedProduct();
+        showBtnAdded('Producto Agregado', 'product--show');
     }
 });
 
 // MUESTRA EL BOTON DE 'PRODUCTO AGREGADO' AL CARRITO
-function showBtnAddedProduct() {
+function showBtnAdded(text, addClass) {
     const showAddedBtn = document.createElement('div');
-    showAddedBtn.classList.add('btn_added-product--show');
-    showAddedBtn.innerHTML = 'Producto Agregado';
+    showAddedBtn.classList.add('btn_added');
+    showAddedBtn.classList.add(addClass);
+    showAddedBtn.innerHTML = text;
     document.querySelector('#modal-background').appendChild(showAddedBtn);
     setTimeout(() => {showAddedBtn.remove()}, 1000);
 }
@@ -254,10 +253,13 @@ const refreshCart = () => {
                 ${product.price * product.quantity}
             </div>
             <div class="modal_product-item modal_product-item-small">
-                <button class="modal_button modal_button--delete" onclick=removeFromCart(${product.idProduct}) data-product-id="${product.idProduct}">-</button>
-                <button class="modal_button modal_button--add" onclick=addToCart(${product.idProduct}) data-product-id="${product.idProduct}">+</button>
+                <button class="modal_button modal_button--delete" data-product-id="${product.idProduct}">-</button>
+                <button class="modal_button modal_button--add" data-product-id="${product.idProduct}">+</button>
             </div>
         `
+        div.querySelector('.modal_button--delete').addEventListener('click', () => removeFromCart(product.idProduct))
+        div.querySelector('.modal_button--add').addEventListener('click', () => addToCart(product.idProduct))
+
         modalProducts.appendChild(div);
     })
     modalCounter.innerText = cart.reduce((total, product) => total + product.quantity, 0);        // SE ACTUALIZA EL CONTADOR LUEGO DE AGREGAR EL PRODUCTO
@@ -276,10 +278,16 @@ const emptyCart = () => {
 
 // FUNCIÓN PARA 'POST' DE LOS PRODUCTOS EN CARRITO
 const saveCartButton = document.getElementById('saveCartButton');
+
 saveCartButton.addEventListener('click', (e) => {
     e.preventDefault();
-    productController.saveCart(cart);
-    emptyCart();
+    if (cart.length !== 0) {
+        productController.saveCart(cart);
+        emptyCart();
+        showBtnAdded('Carrito guardado', 'cart--show');
+    } else {
+        showBtnAdded('No hay productos en carrito', 'cart--show');
+    }
 })
 
 
@@ -287,7 +295,6 @@ saveCartButton.addEventListener('click', (e) => {
 const modalEmptyButton = document.getElementById('modalEmptyButton');
 modalEmptyButton.addEventListener('click', () => {
     emptyCart();
-    // Establecer función que reinicie "quantity" a 0 de cada producto
 });
 
 // PRECIO TOTAL DEL CARRITO
